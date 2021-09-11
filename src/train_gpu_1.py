@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # 作者：小土堆
 # 公众号：土堆碎念
+
+EPOCH = 50
+BATCH_SIZE = 512
 import torch
 import torchvision
 from torch.utils.tensorboard import SummaryWriter
@@ -24,8 +27,8 @@ print("测试数据集的长度为：{}".format(test_data_size))
 
 
 # 利用 DataLoader 来加载数据集
-train_dataloader = DataLoader(train_data, batch_size=64)
-test_dataloader = DataLoader(test_data, batch_size=64)
+train_dataloader = DataLoader(train_data, batch_size=BATCH_SIZE)
+test_dataloader = DataLoader(test_data, batch_size=BATCH_SIZE)
 
 # 创建网络模型
 class Tudui(nn.Module):
@@ -66,7 +69,7 @@ total_train_step = 0
 # 记录测试的次数
 total_test_step = 0
 # 训练的轮数
-epoch = 10
+epoch = EPOCH
 
 # 添加tensorboard
 writer = SummaryWriter("../logs_train")

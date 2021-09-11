@@ -16,13 +16,14 @@ class MyData(Dataset):
         self.label_dir = label_dir
         self.label_path = os.path.join(self.root_dir, self.label_dir)
         self.image_path = os.path.join(self.root_dir, self.image_dir)
-        self.image_list = os.listdir(self.image_path)
+        self.image_list = os.listdir(self.image_path) # 獲得資料集中，所有圖片的地址。
         self.label_list = os.listdir(self.label_path)
         self.transform = transform
         # 因为label 和 Image文件名相同，进行一样的排序，可以保证取出的数据和label是一一对应的
         self.image_list.sort()
         self.label_list.sort()
 
+    # 個別獲取圖片
     def __getitem__(self, idx):
         img_name = self.image_list[idx]
         label_name = self.label_list[idx]
