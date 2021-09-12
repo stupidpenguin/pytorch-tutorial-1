@@ -22,7 +22,7 @@ tensor_img = tensor_trans(img)
 
 # print(tensor_img)
 print(tensor_img.shape)
-print(tensor_img.type)
+print(type(tensor_img))
 
 writer.add_image("Tensor_img", tensor_img)
 
